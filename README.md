@@ -2,7 +2,7 @@
 
 > 专门为外语学习、听力训练或纯净原声观影设计的 B 站外置极简字幕遮挡条 Tampermonkey 脚本。
 
-[![Version](https://img.shields.io/badge/version-1.4.3-blue.svg)](https://github.com/Kirosca/bilibili-subtitle-mask)
+[![Version](https://img.shields.io/badge/version-1.4.4-blue.svg)](https://github.com/Kirosca/bilibili-subtitle-mask)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 ---

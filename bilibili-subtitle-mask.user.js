@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Bilibili 无字幕观影（字幕遮挡）
 // @namespace    http://tampermonkey.net/
-// @version      1.4.3
-// @description  B站外置极简字幕遮挡条：①独立外置书签手柄(零拉伸零裁切)；②智能呼吸隐藏(全链路统一0.8s隐形/移入常亮/拖拽常亮/暂停换视频全程静默无扰)；③白天浅色与夜间暗黑双主题自适应，边框与背景100%同频平滑高亮B站蓝；④长按/Alt+J 50%透视偷看(手柄与黑条0ms瞬发瞬灭同步)，2px激光实线指引，拖拽零重排极速跟手；⑤Alt+M开启手柄0.8s自动呼吸隐藏，Alt+M关闭手柄0ms立刻同步瞬灭(防长按连发闪烁)；⑥Alt+1~5档位秒切结束0延迟同步隐形；⑦换视频全量原子化首帧同步；⑧四级级联记忆+2000条LRU自动垃圾回收(单P>合集>UP主>默认13%)；⑨智能识别新视频标题与标签【无字幕】自动静默隐藏遮挡条；⑩拖拽手柄右键彻底绝缘；⑪油猴菜单一键呼出B站原生UI记忆管理与二次确认弹窗；⑫智能帧采样自适应定位内嵌字幕高度并锁定常驻(无字幕不遮挡，支持Letterbox黑边补偿)；⑬只监听视频下半部分(50%~97%)；⑭双路常驻重新检测按钮(底栏原生按钮+手柄快捷圆钮)+Alt+O；⑮支持暂停视频即时检测与0ms瞬发覆盖；⑰暂停视频单帧极速判定(即点即测零等待)；⑱播放中未检出字幕严格保持遮挡条原状不改动；⑲精简移除播放器工具栏按钮，专注侧边快捷手柄与快捷键；⑳零冗余紧凑贴合覆盖(精准贴合字幕顶沿字形，不留多余空白空间)；㉑四重视觉特征防御机制(文字发光色过滤/横向居中约束/块厚度压制/25%物理天花板，彻底解决衣物背景误检与30%~40%跳变)；㉒支持【持续监听】与【关闭字幕遮挡】多入口选项(手柄与雷达按钮右键菜单/油猴菜单/管理弹窗)，修复检测结束按钮停止旋转；㉓预留+1.0%微距安全遮蔽空间，彻底杜绝字幕顶沿笔画、抗锯齿羽化边及黑色描边微量外露漏字；㉔全链路打通手柄与雷达检测按钮同频联动(移入同频浮现/移出同频0.8s呼吸隐藏/微调与预设0ms瞬灭)，彻底解决检测按钮未同步隐藏问题；㉕提供新视频起播双策略自由切换选项(【持续监听】vs【默认关闭】，旧视频独立遵从专属记忆)，支持右键菜单/管理弹窗/油猴菜单多端一键秒切；㉖严格限定暂停单帧判定仅响应用户手动点击触发，彻底解决新视频初始系统暂停状态误判画面第0帧及遮挡条跳动问题；㉗记忆管理弹窗文本精简避震折行；彻底移除全局冗余提示信息，改为在检测按钮上方出现【✅】向上漂浮淡出的极简微动效反馈（仅检测成功时触发）。
+// @version      1.4.4
+// @description  B站外置极简字幕遮挡条：①独立外置书签手柄(零拉伸零裁切)；②智能呼吸隐藏(全链路统一0.8s隐形/移入常亮/拖拽常亮/暂停换视频全程静默无扰)；③白天浅色与夜间暗黑双主题自适应，边框与背景100%同频平滑高亮B站蓝；④长按/Alt+J 50%透视偷看(手柄与黑条0ms瞬发瞬灭同步)，2px激光实线指引，拖拽零重排极速跟手；⑤Alt+M开启手柄0.8s自动呼吸隐藏，Alt+M关闭手柄0ms立刻同步瞬灭(防长按连发闪烁)；⑥Alt+1~5档位秒切结束0延迟同步隐形；⑦换视频全量原子化首帧同步；⑧四级级联记忆+2000条LRU自动垃圾回收(单P>合集>UP主>默认13%)；⑨智能识别新视频标题与标签【无字幕】自动静默隐藏遮挡条；⑩拖拽手柄右键彻底绝缘；⑪油猴菜单一键呼出B站原生UI记忆管理与二次确认弹窗；⑫智能帧采样自适应定位内嵌字幕高度并锁定常驻(无字幕不遮挡，支持Letterbox黑边补偿)；⑬只监听视频下半部分(50%~97%)；⑭双路常驻重新检测按钮(底栏原生按钮+手柄快捷圆钮)+Alt+O；⑮支持暂停视频即时检测与0ms瞬发覆盖；⑰暂停视频单帧极速判定(即点即测零等待)；⑱播放中未检出字幕严格保持遮挡条原状不改动；⑲精简移除播放器工具栏按钮，专注侧边快捷手柄与快捷键；⑳零冗余紧凑贴合覆盖(精准贴合字幕顶沿字形，不留多余空白空间)；㉑四重视觉特征防御机制(文字发光色过滤/横向居中约束/块厚度压制/25%物理天花板，彻底解决衣物背景误检与30%~40%跳变)；㉒支持【持续监听】与【关闭字幕遮挡】多入口选项(手柄与雷达按钮右键菜单/油猴菜单/管理弹窗)，修复检测结束按钮停止旋转；㉓预留+1.0%微距安全遮蔽空间，彻底杜绝字幕顶沿笔画、抗锯齿羽化边及黑色描边微量外露漏字；㉔全链路打通手柄与雷达检测按钮同频联动(移入同频浮现/移出同频0.8s呼吸隐藏/微调与预设0ms瞬灭)，彻底解决检测按钮未同步隐藏问题；㉕提供新视频起播双策略自由切换选项(【持续监听】vs【默认关闭】，旧视频独立遵从专属记忆)，支持右键菜单/管理弹窗/油猴菜单多端一键秒切；㉖严格限定暂停单帧判定仅响应用户手动点击触发，彻底解决新视频初始系统暂停状态误判画面第0帧及遮挡条跳动问题；㉗记忆管理弹窗文本精简避震折行；检测成功反馈升级为检测按钮全背景绿色渐变微动效闪烁。
 // @author       Kirosca
 // @license      MIT
 // @match        https://www.bilibili.com/video/*
@@ -568,6 +568,44 @@
             pointer-events: none !important;
             transition: opacity 0.22s ease, background 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease !important;
             will-change: top, opacity;
+            overflow: hidden !important;
+        }
+        .bili-mask-standalone-redetect-btn svg {
+            position: relative !important;
+            z-index: 2 !important;
+            transition: color 0.18s ease !important;
+        }
+        .bili-mask-standalone-redetect-btn::after {
+            content: '' !important;
+            position: absolute !important;
+            inset: 0 !important;
+            background: linear-gradient(135deg, #2ac864, #00c06d) !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+            z-index: 1 !important;
+        }
+        .bili-mask-standalone-redetect-btn.is-success-flash {
+            border-color: #00c06d !important;
+            border-left: none !important;
+            color: #ffffff !important;
+            box-shadow: 0 0 10px rgba(0, 192, 109, 0.75) !important;
+        }
+        .bili-mask-standalone-redetect-btn.is-success-flash::after {
+            animation: bili-mask-btn-green-flash 1.15s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
+        }
+        @keyframes bili-mask-btn-green-flash {
+            0% {
+                opacity: 0;
+            }
+            15% {
+                opacity: 1;
+            }
+            40% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
         }
         .bili-mask-standalone-redetect-btn.is-shown {
             opacity: 0.85 !important;
@@ -677,40 +715,6 @@
             height: 1px !important;
             margin: 4px 2px !important;
             background: rgba(128, 128, 128, 0.18) !important;
-        }
-
-        /* 🌟 检测成功极简微动效反馈：位于检测按钮处，z-index 低于检测按钮，向上漂浮淡出 */
-        #bili-mask-detect-success-badge {
-            position: fixed !important;
-            z-index: 999998 !important; /* 严格低于检测按钮 (999999) */
-            pointer-events: none !important;
-            user-select: none !important;
-            font-size: 15px !important;
-            line-height: 1 !important;
-            opacity: 0;
-            transform: translate(-50%, -50%) translateY(0);
-            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.4));
-        }
-        #bili-mask-detect-success-badge.is-animating {
-            animation: bili-mask-check-rise 1.25s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
-        }
-        @keyframes bili-mask-check-rise {
-            0% {
-                opacity: 0;
-                transform: translate(-50%, -50%) translateY(2px) scale(0.6);
-            }
-            20% {
-                opacity: 1;
-                transform: translate(-50%, -50%) translateY(-14px) scale(1.15);
-            }
-            60% {
-                opacity: 0.95;
-                transform: translate(-50%, -50%) translateY(-22px) scale(1.0);
-            }
-            100% {
-                opacity: 0;
-                transform: translate(-50%, -50%) translateY(-32px) scale(0.85);
-            }
         }
     `;
     document.head.appendChild(style);
@@ -1125,7 +1129,7 @@
         updateBtnStateClass();
         saveCascadingConfig(config);
         triggerBtnVisibility(3000);
-        showDetectSuccessBadge(); // 🌟 仅检测成功后在检测按钮上方出现 ✅ 向上漂浮淡出
+        flashDetectSuccessButton(); // 🌟 检测成功反馈：整个检测按钮背景渐变绿色微动效闪烁
     }
 
     function startSubtitleDetection(isManual = false, continuous = false) {
@@ -1781,23 +1785,22 @@
         handleRouteChange();
     }
 
-    // 🌟 轻量 Toast 提示函数（支持静默模式与底部居中弹出） 🌟
-    // 🌟 检测成功极简微动效反馈：在【检测按钮】上方（z-index 低于检测按钮）出现 ✅ 向上漂浮淡出 🌟
-    function showDetectSuccessBadge() {
+    // 🌟 检测成功极简微动效反馈：整个检测按钮背景色渐变绿色闪烁 🌟
+    let btnSuccessFlashTimer = null;
+    function flashDetectSuccessButton() {
         if (!redetectBtn) { return; }
-        let badge = document.getElementById('bili-mask-detect-success-badge');
-        if (!badge) {
-            badge = document.createElement('div');
-            badge.id = 'bili-mask-detect-success-badge';
-            badge.textContent = '✅';
-            document.body.appendChild(badge);
+        triggerBtnVisibility(3000);
+        redetectBtn.classList.remove('is-success-flash');
+        void redetectBtn.offsetWidth; // 触发回流重置动效
+        redetectBtn.classList.add('is-success-flash');
+        if (btnSuccessFlashTimer) {
+            clearTimeout(btnSuccessFlashTimer);
         }
-        const rect = redetectBtn.getBoundingClientRect();
-        badge.style.left = `${rect.left + rect.width / 2}px`;
-        badge.style.top = `${rect.top + rect.height / 2}px`;
-        badge.classList.remove('is-animating');
-        void badge.offsetWidth; // 触发回流重置动效
-        badge.classList.add('is-animating');
+        btnSuccessFlashTimer = setTimeout(() => {
+            if (redetectBtn) {
+                redetectBtn.classList.remove('is-success-flash');
+            }
+        }, 1150);
     }
 
     // 彻底移除全局冗余提示信息，保持空实现避免外部引用报错
