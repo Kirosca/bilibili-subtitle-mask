@@ -2,7 +2,7 @@
 
 > 专门为外语学习、听力训练或纯净原声观影设计的 B 站外置极简字幕遮挡条 Tampermonkey 脚本。
 
-[![Version](https://img.shields.io/badge/version-1.5.0-blue.svg)](https://github.com/Kirosca/bilibili-subtitle-mask)
+[![Version](https://img.shields.io/badge/version-1.5.1-blue.svg)](https://github.com/Kirosca/bilibili-subtitle-mask)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 ---
@@ -18,6 +18,7 @@
    - 纯前端 Canvas 像素分析，不依赖外部 OCR 服务，零网络延迟与零隐私泄露；
    - 画面底部（58%~96%）水平边缘梯度差分算子精准捕捉台词；
    - **智能识别任意双行/双语字幕（中英/英中/日中/中日等）**：支持在弹窗/右键菜单/油猴菜单自由选择【全部遮挡】或【仅遮挡下行】；
+   - **增强多色字芯与即时响应 (v1.5.1)**：全面支持高光白、醒目黄、青蓝/浅蓝、草绿等多色字芯捕获与行间断点自适应切分，切换策略 0 延迟即时重算并贴合遮挡；
    - 四重视觉防御（字芯发光色校验、纵向厚度约束 $\le 22\%$、横向居中约束 $34\% \sim 66\%$、25% 物理天花板硬截断），杜绝衣服褶皱与背景误检。
 
 3. **双策略起播控制（新视频策略）**：

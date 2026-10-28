@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Bilibili 无字幕观影（字幕遮挡）
 // @namespace    http://tampermonkey.net/
-// @version      1.5.0
-// @description  B站外置极简字幕遮挡条：①独立外置书签手柄(零拉伸零裁切)；②智能呼吸隐藏(全链路统一0.8s隐形/移入常亮/拖拽常亮/暂停换视频全程静默无扰)；③白天浅色与夜间暗黑双主题自适应，边框与背景100%同频平滑高亮B站蓝；④长按/Alt+J 50%透视偷看(手柄与黑条0ms瞬发瞬灭同步)，2px激光实线指引，拖拽零重排极速跟手；⑤Alt+M开启手柄0.8s自动呼吸隐藏，Alt+M关闭手柄0ms立刻同步瞬灭(防长按连发闪烁)；⑥Alt+1~5档位秒切结束0延迟同步隐形；⑦换视频全量原子化首帧同步；⑧四级级联记忆+2000条LRU自动垃圾回收(单P>合集>UP主>默认13%)；⑨智能识别新视频标题与标签【无字幕】自动静默隐藏遮挡条；⑩拖拽手柄右键彻底绝缘；⑪油猴菜单一键呼出B站原生UI记忆管理与二次确认弹窗；⑫智能帧采样自适应定位内嵌字幕高度并锁定常驻(无字幕不遮挡，支持Letterbox黑边补偿)；⑬只监听视频下半部分(50%~97%)；⑭双路常驻重新检测按钮(底栏原生按钮+手柄快捷圆钮)+Alt+O；⑮支持暂停视频即时检测与0ms瞬发覆盖；⑰暂停视频单帧极速判定(即点即测零等待)；⑱播放中未检出字幕严格保持遮挡条原状不改动；⑲精简移除播放器工具栏按钮，专注侧边快捷手柄与快捷键；⑳零冗余紧凑贴合覆盖(精准贴合字幕顶沿字形，不留多余空白空间)；㉑四重视觉特征防御机制(文字发光色过滤/横向居中约束/块厚度压制/25%物理天花板，彻底解决衣物背景误检与30%~40%跳变)；㉒支持【持续监听】与【关闭字幕遮挡】多入口选项(手柄与雷达按钮右键菜单/油猴菜单/管理弹窗)，修复检测结束按钮停止旋转；㉓预留+1.0%微距安全遮蔽空间，彻底杜绝字幕顶沿笔画、抗锯齿羽化边及黑色描边微量外露漏字；㉔全链路打通手柄与雷达检测按钮同频联动(移入同频浮现/移出同频0.8s呼吸隐藏/微调与预设0ms瞬灭)，彻底解决检测按钮未同步隐藏问题；㉕提供新视频起播双策略自由切换选项(【持续监听】vs【默认关闭】，旧视频独立遵从专属记忆)，支持右键菜单/管理弹窗/油猴菜单多端一键秒切；㉖严格限定暂停单帧判定仅响应用户手动点击触发，彻底解决新视频初始系统暂停状态误判画面第0帧及遮挡条跳动问题；㉗记忆管理弹窗文本精简避震折行；彻底移除提示弹窗与按钮动画反馈，回归完全纯净静默无扰观影体验；㉘智能识别中英/英中/日中/中日等任意双行/双语字幕，在管理弹窗/右键菜单/油猴菜单提供双行规则自由切换（【全部遮挡】vs【仅遮挡下行】）。
+// @version      1.5.1
+// @description  B站外置极简字幕遮挡条：①独立外置书签手柄(零拉伸零裁切)；②智能呼吸隐藏(全链路统一0.8s隐形/移入常亮/拖拽常亮/暂停换视频全程静默无扰)；③白天浅色与夜间暗黑双主题自适应，边框与背景100%同频平滑高亮B站蓝；④长按/Alt+J 50%透视偷看(手柄与黑条0ms瞬发瞬灭同步)，2px激光实线指引，拖拽零重排极速跟手；⑤Alt+M开启手柄0.8s自动呼吸隐藏，Alt+M关闭手柄0ms立刻同步瞬灭(防长按连发闪烁)；⑥Alt+1~5档位秒切结束0延迟同步隐形；⑦换视频全量原子化首帧同步；⑧四级级联记忆+2000条LRU自动垃圾回收(单P>合集>UP主>默认13%)；⑨智能识别新视频标题与标签【无字幕】自动静默隐藏遮挡条；⑩拖拽手柄右键彻底绝缘；⑪油猴菜单一键呼出B站原生UI记忆管理与二次确认弹窗；⑫智能帧采样自适应定位内嵌字幕高度并锁定常驻(无字幕不遮挡，支持Letterbox黑边补偿)；⑬只监听视频下半部分(50%~97%)；⑭双路常驻重新检测按钮(底栏原生按钮+手柄快捷圆钮)+Alt+O；⑮支持暂停视频即时检测与0ms瞬发覆盖；⑰暂停视频单帧极速判定(即点即测零等待)；⑱播放中未检出字幕严格保持遮挡条原状不改动；⑲精简移除播放器工具栏按钮，专注侧边快捷手柄与快捷键；⑳零冗余紧凑贴合覆盖(精准贴合字幕顶沿字形，不留多余空白空间)；㉑四重视觉特征防御机制(文字发光色过滤/横向居中约束/块厚度压制/25%物理天花板，彻底解决衣物背景误检与30%~40%跳变)；㉒支持【持续监听】与【关闭字幕遮挡】多入口选项(手柄与雷达按钮右键菜单/油猴菜单/管理弹窗)，修复检测结束按钮停止旋转；㉓预留+1.0%微距安全遮蔽空间，彻底杜绝字幕顶沿笔画、抗锯齿羽化边及黑色描边微量外露漏字；㉔全链路打通手柄与雷达检测按钮同频联动(移入同频浮现/移出同频0.8s呼吸隐藏/微调与预设0ms瞬灭)，彻底解决检测按钮未同步隐藏问题；㉕提供新视频起播双策略自由切换选项(【持续监听】vs【默认关闭】，旧视频独立遵从专属记忆)，支持右键菜单/管理弹窗/油猴菜单多端一键秒切；㉖严格限定暂停单帧判定仅响应用户手动点击触发，彻底解决新视频初始系统暂停状态误判画面第0帧及遮挡条跳动问题；㉗记忆管理弹窗文本精简避震折行；彻底移除提示弹窗与按钮动画反馈，回归完全纯净静默无扰观影体验；㉘智能识别中英/英中/日中/中日等任意双行/双语字幕，在管理弹窗/右键菜单/油猴菜单提供双行规则自由切换（【全部遮挡】vs【仅遮挡下行】）；㉙增强青蓝/浅蓝/草绿等多色字芯识别算法与行间断点自适应切分，双行策略切换0延迟即时刷新遮挡高度，杜绝两行误全遮。
 // @author       Kirosca
 // @license      MIT
 // @match        https://www.bilibili.com/video/*
@@ -732,6 +732,7 @@
     let offscreenCanvas = null;
     let offscreenCtx = null;
     let quickMenuEl = null;
+    let lastDetectedDualInfo = null; // 🌟 记录最近识别到的双行完整与下行高度信息
 
     function updateDetectionUIState(isDetecting, isContinuous = false) {
         const oldCtrl = document.getElementById('bili-mask-ctrl-redetect-btn');
@@ -884,8 +885,7 @@
             e.stopPropagation();
             menu.classList.remove('is-open');
             const next = currentDual === 'bottom_only' ? 'all' : 'bottom_only';
-            setDualLineStrategy(next);
-            triggerManualDetection(false);
+            applyDualLineStrategyImmediately(next);
         };
         document.getElementById('bili-menu-open-modal').onclick = (e) => {
             e.stopPropagation();
@@ -962,10 +962,12 @@
                     const lum1 = 0.299 * r1 + 0.587 * g1 + 0.114 * b1;
                     const lum2 = 0.299 * r2 + 0.587 * g2 + 0.114 * b2;
                     if (Math.abs(lum1 - lum2) > 24) {
-                        // 🌟 防御 1：文字字芯发光色校验（过滤暗色衣物褶皱、肤色、阴影，仅保留高光白或醒目黄）
-                        const isWhite = lum1 >= 165 || lum2 >= 165;
-                        const isYellow = (r1 > 160 && g1 > 140 && b1 < 120) || (r2 > 160 && g2 > 140 && b2 < 120);
-                        if (isWhite || isYellow) {
+                        // 🌟 防御 1：文字字芯发光色校验（过滤暗色衣物褶皱、肤色、阴影，支持高光白、醒目黄、青蓝/浅蓝、草绿等常见双行对照色彩）
+                        const isWhite = lum1 >= 140 || lum2 >= 140;
+                        const isYellow = (r1 > 150 && g1 > 130 && b1 < 120) || (r2 > 150 && g2 > 130 && b2 < 120);
+                        const isCyan = (g1 > 120 && b1 > 120 && b1 > r1 * 1.05) || (g2 > 120 && b2 > 120 && b2 > r2 * 1.05);
+                        const isGreen = (g1 > 130 && g1 > r1 * 1.15 && g1 > b1 * 1.05) || (g2 > 130 && g2 > r2 * 1.15 && g2 > b2 * 1.05);
+                        if (isWhite || isYellow || isCyan || isGreen) {
                             edgeCount++;
                             if (rowMinX === -1) { rowMinX = x; }
                             rowMaxX = x;
@@ -982,7 +984,7 @@
             // 🌟 核心优化 2：自适应背景噪点分离门槛（引入字芯特征后，噪点行边缘数 <= 4，真实字幕达 30~180）
             const coreThreshold = Math.max(16, Math.min(24, Math.floor(maxEdgeInRoi * 0.20)));
 
-            // 🌟 核心优化 3：双行字幕自适应切分（行间允许 4 行内部字隙连通，保持上下两行自然独立切分）
+            // 🌟 核心优化 3：双行字幕自适应切分（行间允许 2 行内部字隙微连通，保持上下两行自然独立切分）
             const clusters = [];
             let currentCluster = null;
 
@@ -997,7 +999,7 @@
                 } else {
                     if (currentCluster) {
                         let hasNearby = false;
-                        for (let g = y; g <= Math.min(roiYEnd, y + 4); g++) {
+                        for (let g = y; g <= Math.min(roiYEnd, y + 2); g++) {
                             if (rowEdges[g] >= coreThreshold) {
                                 hasNearby = true;
                                 break;
@@ -1059,7 +1061,7 @@
 
                 // 🌟 防御 2：纵向厚度约束（单行字幕或紧凑双行，控制在 <= 22% 画面高度）
                 const textSpan = maxY - minY;
-                if (textSpan < 4 || textSpan > Math.round(targetH * 0.22)) {
+                if (textSpan < 3 || textSpan > Math.round(targetH * 0.22)) {
                     continue;
                 }
 
@@ -1121,19 +1123,21 @@
                 for (let i = 1; i < candidateList.length; i++) {
                     const cand = candidateList[i];
                     const gapPx = bottomCand.minY - cand.maxY;
-                    // 垂直间隙在 -2px（微重叠）至 8% 画面高度（标准双行行距）之间
-                    const isAdjacent = gapPx >= -2 && gapPx <= Math.round(targetH * 0.08);
-                    // 横向中心对齐偏差 <= 9.0%
-                    const isCenterAligned = Math.abs(cand.centerPercent - bottomCand.centerPercent) <= 9.0;
-                    // 双行总跨度不超过 22% 画高
+                    // 垂直间隙在 -2px（微重叠）至 9% 画面高度（标准双行行距）之间
+                    const isAdjacent = gapPx >= -2 && gapPx <= Math.round(targetH * 0.09);
+                    // 横向中心对齐偏差 <= 12.0%
+                    const isCenterAligned = Math.abs(cand.centerPercent - bottomCand.centerPercent) <= 12.0;
+                    // 双行总跨度不超过 24% 画高
                     const totalSpan = bottomCand.maxY - cand.minY;
-                    const isSpanValid = totalSpan <= Math.round(targetH * 0.22);
+                    const isSpanValid = totalSpan <= Math.round(targetH * 0.24);
 
                     if (isAdjacent && isCenterAligned && isSpanValid) {
                         companionTopCand = cand;
                         break;
                     }
                 }
+
+                const dualStrategy = getDualLineStrategy();
 
                 if (companionTopCand) {
                     const fullHeight = Math.max(bottomCand.heightPercent, companionTopCand.heightPercent);
@@ -1142,8 +1146,15 @@
                     bottomCand.fullHeight = fullHeight;
                     bottomCand.bottomHeight = bottomHeight;
 
-                    const dualStrategy = getDualLineStrategy();
+                    // 记录全局最近检测到的双行信息，供策略即时切换使用
+                    lastDetectedDualInfo = { fullHeight, bottomHeight, time: Date.now() };
+
                     bottomCand.heightPercent = dualStrategy === 'bottom_only' ? bottomHeight : fullHeight;
+
+                    // 🌟 核心收敛：双行模式下将 candidateList 收敛为单一最终决策候选，严禁上行候选独立残留！
+                    // 彻底杜绝播放中动态台词宽度变化时独立匹配上行候选（21%）覆盖下行策略
+                    candidateList.length = 0;
+                    candidateList.push(bottomCand);
                 } else if ((bottomCand.maxY - bottomCand.minY) >= Math.round(targetH * 0.11)) {
                     // 2. 紧凑连通簇内部谷值检测（应对极紧密双行）
                     const midStart = bottomCand.minY + Math.round((bottomCand.maxY - bottomCand.minY) * 0.3);
@@ -1167,8 +1178,18 @@
                         bottomCand.fullHeight = fullHeight;
                         bottomCand.bottomHeight = bottomHeight;
 
-                        const dualStrategy = getDualLineStrategy();
+                        lastDetectedDualInfo = { fullHeight, bottomHeight, time: Date.now() };
+
                         bottomCand.heightPercent = dualStrategy === 'bottom_only' ? bottomHeight : fullHeight;
+
+                        candidateList.length = 0;
+                        candidateList.push(bottomCand);
+                    }
+                } else if (dualStrategy === 'bottom_only') {
+                    // 🌟 关键防御：仅遮挡下行模式下，若当前画面仅检出位于上行区域的孤立文本（内部占比 > 16.5%），绝不作为下行遮挡
+                    const subVideoRatio = (targetH - bottomCand.minY) / targetH;
+                    if (subVideoRatio > 0.165) {
+                        return [];
                     }
                 }
             }
@@ -1196,6 +1217,48 @@
         updateBtnStateClass();
         saveCascadingConfig(config);
         triggerBtnVisibility(3000);
+    }
+
+    function applyDualLineStrategyImmediately(newStrategy) {
+        setDualLineStrategy(newStrategy);
+
+        // 1. 若已有记录的最近双行高度信息，立即换算并应用
+        if (lastDetectedDualInfo) {
+            const targetHeight = newStrategy === 'bottom_only'
+                ? lastDetectedDualInfo.bottomHeight
+                : lastDetectedDualInfo.fullHeight;
+            if (targetHeight && targetHeight > 0) {
+                applyDetectedSubtitleHeight(targetHeight);
+                showToast(`👥 双行字幕：已即时设为【${newStrategy === 'bottom_only' ? '仅遮挡下行' : '全部遮挡'}】(${targetHeight}%)`);
+                return;
+            }
+        }
+
+        // 2. 若当前有播放器和视频，立即针对当前视频帧单帧重算
+        const video = (trackedPlayer && trackedPlayer.querySelector('video')) || document.querySelector('video');
+        if (video && video.readyState >= 2) {
+            const cands = detectFrameSubtitle(video, true);
+            if (cands && cands.length > 0 && !cands[0].isClippedByCors) {
+                applyDetectedSubtitleHeight(cands[0].heightPercent);
+                showToast(`👥 双行字幕：已即时设为【${newStrategy === 'bottom_only' ? '仅遮挡下行' : '全部遮挡'}】(${cands[0].heightPercent}%)`);
+                return;
+            }
+        }
+
+        // 3. 画面无字或无缓冲时，智能基于当前高度做降级折算
+        if (newStrategy === 'bottom_only' && config.heightPercent > 16.5) {
+            const fallbackBottom = parseFloat((config.heightPercent * 0.70).toFixed(1));
+            applyDetectedSubtitleHeight(fallbackBottom);
+            showToast(`👥 双行字幕：已即时设为【仅遮挡下行】(${fallbackBottom}%)`);
+            return;
+        } else if (newStrategy === 'all' && config.heightPercent <= 16.5 && config.heightPercent > 8.0) {
+            const fallbackAll = parseFloat((config.heightPercent * 1.43).toFixed(1));
+            applyDetectedSubtitleHeight(fallbackAll);
+            showToast(`👥 双行字幕：已即时设为【全部遮挡】(${fallbackAll}%)`);
+            return;
+        }
+
+        showToast(`👥 双行字幕策略已设为：【${newStrategy === 'bottom_only' ? '仅遮挡下行' : '全部遮挡'}】`);
     }
 
     function startSubtitleDetection(isManual = false, continuous = false) {
@@ -2022,14 +2085,12 @@
             };
 
             document.getElementById('bili-btn-dual-all').addEventListener('click', () => {
-                setDualLineStrategy('all');
+                applyDualLineStrategyImmediately('all');
                 updateDualLineButtonsUI();
-                triggerManualDetection(false);
             });
             document.getElementById('bili-btn-dual-bottom').addEventListener('click', () => {
-                setDualLineStrategy('bottom_only');
+                applyDualLineStrategyImmediately('bottom_only');
                 updateDualLineButtonsUI();
-                triggerManualDetection(false);
             });
 
             // 按钮 0：重新单次检测字幕
@@ -2222,8 +2283,7 @@
             const dualLabel = currentDual === 'all' ? '全部遮挡' : '仅遮挡下行';
             GM_registerMenuCommand(`👥 双行字幕：${dualLabel} (点击切换)`, () => {
                 const next = getDualLineStrategy() === 'all' ? 'bottom_only' : 'all';
-                setDualLineStrategy(next);
-                triggerManualDetection(false);
+                applyDualLineStrategyImmediately(next);
             });
             GM_registerMenuCommand('🎯 重新单次检测字幕 (Alt+O)', () => {
                 triggerManualDetection(false);
