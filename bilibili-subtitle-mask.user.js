@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Bilibili 无字幕观影（字幕遮挡）
 // @namespace    http://tampermonkey.net/
-// @version      1.4.1
-// @description  B站外置极简字幕遮挡条：①独立外置书签手柄(零拉伸零裁切)；②智能呼吸隐藏(全链路统一0.8s隐形/移入常亮/拖拽常亮/暂停换视频全程静默无扰)；③白天浅色与夜间暗黑双主题自适应，边框与背景100%同频平滑高亮B站蓝；④长按/Alt+J 50%透视偷看(手柄与黑条0ms瞬发瞬灭同步)，2px激光实线指引，拖拽零重排极速跟手；⑤Alt+M开启手柄0.8s自动呼吸隐藏，Alt+M关闭手柄0ms立刻同步瞬灭(防长按连发闪烁)；⑥Alt+1~5档位秒切结束0延迟同步隐形；⑦换视频全量原子化首帧同步；⑧四级级联记忆+2000条LRU自动垃圾回收(单P>合集>UP主>默认13%)；⑨智能识别新视频标题与标签【无字幕】自动静默隐藏遮挡条；⑩拖拽手柄右键彻底绝缘；⑪油猴菜单一键呼出B站原生UI记忆管理与二次确认弹窗；⑫智能帧采样自适应定位内嵌字幕高度并锁定常驻(无字幕不遮挡，支持Letterbox黑边补偿)；⑬只监听视频下半部分(50%~97%)；⑭双路常驻重新检测按钮(底栏原生按钮+手柄快捷圆钮)+Alt+O；⑮支持暂停视频即时检测与0ms瞬发覆盖；⑰暂停视频单帧极速判定(即点即测零等待)；⑱播放中未检出字幕严格保持遮挡条原状不改动；⑲精简移除播放器工具栏按钮，专注侧边快捷手柄与快捷键；⑳零冗余紧凑贴合覆盖(精准贴合字幕顶沿字形，不留多余空白空间)；㉑四重视觉特征防御机制(文字发光色过滤/横向居中约束/块厚度压制/25%物理天花板，彻底解决衣物背景误检与30%~40%跳变)；㉒支持【持续监听直到遮挡】与【关闭字幕遮挡】多入口选项(手柄与雷达按钮右键菜单/油猴菜单/管理弹窗)，修复检测结束按钮停止旋转；㉓预留+1.0%微距安全遮蔽空间，彻底杜绝字幕顶沿笔画、抗锯齿羽化边及黑色描边微量外露漏字；㉔全链路打通手柄与雷达检测按钮同频联动(移入同频浮现/移出同频0.8s呼吸隐藏/微调与预设0ms瞬灭)，彻底解决检测按钮未同步隐藏问题；㉕提供新视频起播双策略自由切换选项(【持续监听直到遮挡】vs【默认完全关闭】，旧视频独立遵从专属记忆)，支持右键菜单/管理弹窗/油猴菜单多端一键秒切；㉖严格限定暂停单帧判定仅响应用户手动点击触发，彻底解决新视频初始系统暂停状态误判画面第0帧及遮挡条跳动问题。
+// @version      1.4.2
+// @description  B站外置极简字幕遮挡条：①独立外置书签手柄(零拉伸零裁切)；②智能呼吸隐藏(全链路统一0.8s隐形/移入常亮/拖拽常亮/暂停换视频全程静默无扰)；③白天浅色与夜间暗黑双主题自适应，边框与背景100%同频平滑高亮B站蓝；④长按/Alt+J 50%透视偷看(手柄与黑条0ms瞬发瞬灭同步)，2px激光实线指引，拖拽零重排极速跟手；⑤Alt+M开启手柄0.8s自动呼吸隐藏，Alt+M关闭手柄0ms立刻同步瞬灭(防长按连发闪烁)；⑥Alt+1~5档位秒切结束0延迟同步隐形；⑦换视频全量原子化首帧同步；⑧四级级联记忆+2000条LRU自动垃圾回收(单P>合集>UP主>默认13%)；⑨智能识别新视频标题与标签【无字幕】自动静默隐藏遮挡条；⑩拖拽手柄右键彻底绝缘；⑪油猴菜单一键呼出B站原生UI记忆管理与二次确认弹窗；⑫智能帧采样自适应定位内嵌字幕高度并锁定常驻(无字幕不遮挡，支持Letterbox黑边补偿)；⑬只监听视频下半部分(50%~97%)；⑭双路常驻重新检测按钮(底栏原生按钮+手柄快捷圆钮)+Alt+O；⑮支持暂停视频即时检测与0ms瞬发覆盖；⑰暂停视频单帧极速判定(即点即测零等待)；⑱播放中未检出字幕严格保持遮挡条原状不改动；⑲精简移除播放器工具栏按钮，专注侧边快捷手柄与快捷键；⑳零冗余紧凑贴合覆盖(精准贴合字幕顶沿字形，不留多余空白空间)；㉑四重视觉特征防御机制(文字发光色过滤/横向居中约束/块厚度压制/25%物理天花板，彻底解决衣物背景误检与30%~40%跳变)；㉒支持【持续监听直到遮挡】与【关闭字幕遮挡】多入口选项(手柄与雷达按钮右键菜单/油猴菜单/管理弹窗)，修复检测结束按钮停止旋转；㉓预留+1.0%微距安全遮蔽空间，彻底杜绝字幕顶沿笔画、抗锯齿羽化边及黑色描边微量外露漏字；㉔全链路打通手柄与雷达检测按钮同频联动(移入同频浮现/移出同频0.8s呼吸隐藏/微调与预设0ms瞬灭)，彻底解决检测按钮未同步隐藏问题；㉕提供新视频起播双策略自由切换选项(【持续监听直到遮挡】vs【默认完全关闭】，旧视频独立遵从专属记忆)，支持右键菜单/管理弹窗/油猴菜单多端一键秒切；㉖严格限定暂停单帧判定仅响应用户手动点击触发，彻底解决新视频初始系统暂停状态误判画面第0帧及遮挡条跳动问题；㉗提示信息改为播放器底部居中滑入弹出；在【观影记忆管理】窗口新增【无提示不弹出信息】静默开关选项，支持一键秒切。
 // @author       Kirosca
 // @license      MIT
 // @match        https://www.bilibili.com/video/*
@@ -27,6 +27,30 @@
     const DB_STORAGE_KEY = 'bili_mask_cascading_database_v7';
     const MAX_STORAGE_RECORDS = 2000;
     const NEW_VIDEO_STRATEGY_KEY = 'bili_mask_new_video_strategy'; // 'continuous' | 'closed'
+    const TOAST_DISABLED_KEY = 'bili_mask_toast_disabled'; // boolean
+
+    function isToastDisabled() {
+        try {
+            if (typeof GM_getValue !== 'undefined') {
+                const val = GM_getValue(TOAST_DISABLED_KEY, null);
+                if (val !== null) { return val === true; }
+            }
+            return localStorage.getItem(TOAST_DISABLED_KEY) === 'true';
+        } catch (e) {
+            return false;
+        }
+    }
+
+    function setToastDisabled(disabled) {
+        try {
+            if (typeof GM_setValue !== 'undefined') {
+                GM_setValue(TOAST_DISABLED_KEY, disabled);
+            }
+            localStorage.setItem(TOAST_DISABLED_KEY, disabled ? 'true' : 'false');
+        } catch (e) {
+            void e;
+        }
+    }
 
     function getNewVideoStrategy() {
         try {
@@ -679,12 +703,12 @@
             background: rgba(128, 128, 128, 0.18) !important;
         }
 
-        /* 轻量 Toast 提示 */
+        /* 轻量 Toast 提示：位于播放器底部居中滑入弹出，避开底部进度条与控制按钮 */
         #bili-mask-toast {
             position: absolute !important;
-            top: 24px !important;
+            bottom: 64px !important;
             left: 50% !important;
-            transform: translateX(-50%) translateY(-20px) !important;
+            transform: translateX(-50%) translateY(16px) !important;
             white-space: nowrap !important;
             background: rgba(0, 0, 0, 0.85) !important;
             color: #ffffff !important;
@@ -695,7 +719,7 @@
             opacity: 0;
             pointer-events: none;
             transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
         }
         #bili-mask-toast.toast-show {
             opacity: 1 !important;
@@ -1770,8 +1794,11 @@
         handleRouteChange();
     }
 
-    // 🌟 轻量 Toast 提示函数 🌟
+    // 🌟 轻量 Toast 提示函数（支持静默模式与底部居中弹出） 🌟
     function showToast(msg) {
+        if (isToastDisabled()) {
+            return;
+        }
         let toast = document.getElementById('bili-mask-toast');
         const container = trackedPlayer || document.body;
         if (!toast) {
@@ -1780,6 +1807,11 @@
             container.appendChild(toast);
         } else if (toast.parentElement !== container) {
             container.appendChild(toast);
+        }
+        if (container === document.body) {
+            toast.style.setProperty('position', 'fixed', 'important');
+        } else {
+            toast.style.removeProperty('position');
         }
         toast.textContent = msg;
         toast.classList.add('toast-show');
@@ -1822,6 +1854,16 @@
                             <div style="display:flex; gap:8px;">
                                 <button class="bili-mask-action-btn btn-normal" id="bili-btn-strat-continuous" style="flex:1; height:32px; font-size:12px;">🔄 持续监听直到遮挡</button>
                                 <button class="bili-mask-action-btn btn-normal" id="bili-btn-strat-closed" style="flex:1; height:32px; font-size:12px;">🚫 默认完全关闭</button>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 14px; padding: 10px 12px; border-radius: 8px; background: rgba(0, 174, 236, 0.08); border: 1px solid rgba(0, 174, 236, 0.2); font-size: 13px;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 8px;">
+                                <span style="font-weight:600;">💬 状态提示信息弹出：</span>
+                                <span id="bili-toast-badge" style="color:#00aeec; font-weight:600;">下方正常弹出</span>
+                            </div>
+                            <div style="display:flex; gap:8px;">
+                                <button class="bili-mask-action-btn btn-normal" id="bili-btn-toast-normal" style="flex:1; height:32px; font-size:12px;">🔔 正常弹出提示</button>
+                                <button class="bili-mask-action-btn btn-normal" id="bili-btn-toast-silent" style="flex:1; height:32px; font-size:12px;">🔕 无提示不弹出信息</button>
                             </div>
                         </div>
                         <div class="bili-mask-btn-group">
@@ -1918,6 +1960,46 @@
                 setNewVideoStrategy('closed');
                 updateStrategyButtonsUI();
                 showToast('✅ 已设置新视频默认【完全关闭】');
+            });
+
+            // 状态提示信息弹出控制
+            const updateToastButtonsUI = () => {
+                const disabled = isToastDisabled();
+                const badge = document.getElementById('bili-toast-badge');
+                if (badge) {
+                    badge.textContent = disabled ? '静默不弹出信息' : '下方正常弹出';
+                    badge.style.color = disabled ? '#9499a0' : '#00aeec';
+                }
+                const bNormal = document.getElementById('bili-btn-toast-normal');
+                const bSilent = document.getElementById('bili-btn-toast-silent');
+                if (bNormal && bSilent) {
+                    if (!disabled) {
+                        bNormal.style.setProperty('background', '#00aeec', 'important');
+                        bNormal.style.setProperty('color', '#ffffff', 'important');
+                        bNormal.style.setProperty('border-color', '#00aeec', 'important');
+                        bSilent.style.removeProperty('background');
+                        bSilent.style.removeProperty('color');
+                        bSilent.style.removeProperty('border-color');
+                    } else {
+                        bSilent.style.setProperty('background', '#00aeec', 'important');
+                        bSilent.style.setProperty('color', '#ffffff', 'important');
+                        bSilent.style.setProperty('border-color', '#00aeec', 'important');
+                        bNormal.style.removeProperty('background');
+                        bNormal.style.removeProperty('color');
+                        bNormal.style.removeProperty('border-color');
+                    }
+                }
+            };
+
+            document.getElementById('bili-btn-toast-normal').addEventListener('click', () => {
+                setToastDisabled(false);
+                updateToastButtonsUI();
+                showToast('🔔 已开启操作提示气泡（下方弹出）');
+            });
+            document.getElementById('bili-btn-toast-silent').addEventListener('click', () => {
+                showToast('🔕 已关闭所有提示信息，进入静默模式');
+                setToastDisabled(true);
+                updateToastButtonsUI();
             });
 
             // 按钮 0：重新单次检测字幕
@@ -2059,6 +2141,35 @@
         };
         updateStrategyButtonsUI();
 
+        const updateToastButtonsUI = () => {
+            const disabled = isToastDisabled();
+            const badge = document.getElementById('bili-toast-badge');
+            if (badge) {
+                badge.textContent = disabled ? '静默不弹出信息' : '下方正常弹出';
+                badge.style.color = disabled ? '#9499a0' : '#00aeec';
+            }
+            const bNormal = document.getElementById('bili-btn-toast-normal');
+            const bSilent = document.getElementById('bili-btn-toast-silent');
+            if (bNormal && bSilent) {
+                if (!disabled) {
+                    bNormal.style.setProperty('background', '#00aeec', 'important');
+                    bNormal.style.setProperty('color', '#ffffff', 'important');
+                    bNormal.style.setProperty('border-color', '#00aeec', 'important');
+                    bSilent.style.removeProperty('background');
+                    bSilent.style.removeProperty('color');
+                    bSilent.style.removeProperty('border-color');
+                } else {
+                    bSilent.style.setProperty('background', '#00aeec', 'important');
+                    bSilent.style.setProperty('color', '#ffffff', 'important');
+                    bSilent.style.setProperty('border-color', '#00aeec', 'important');
+                    bNormal.style.removeProperty('background');
+                    bNormal.style.removeProperty('color');
+                    bNormal.style.removeProperty('border-color');
+                }
+            }
+        };
+        updateToastButtonsUI();
+
         const viewMain = document.getElementById('bili-mask-view-main');
         const viewConfirm = document.getElementById('bili-mask-view-confirm');
         if (viewMain && viewConfirm) {
@@ -2078,6 +2189,18 @@
                 const next = getNewVideoStrategy() === 'continuous' ? 'closed' : 'continuous';
                 setNewVideoStrategy(next);
                 showToast(`⚙️ 新视频起播规则已设为：${next === 'continuous' ? '🔄 持续监听直到遮挡' : '🚫 默认完全关闭'}`);
+            });
+            const toastDisabled = isToastDisabled();
+            const toastLabel = toastDisabled ? '【🔕 静默无提示】' : '【🔔 正常弹出提示】';
+            GM_registerMenuCommand(`💬 操作气泡提示：${toastLabel} (点击切换)`, () => {
+                const next = !isToastDisabled();
+                if (!next) {
+                    setToastDisabled(false);
+                    showToast('🔔 已开启操作提示气泡（下方弹出）');
+                } else {
+                    showToast('🔕 已关闭所有提示信息，进入静默模式');
+                    setToastDisabled(true);
+                }
             });
             GM_registerMenuCommand('🎯 重新单次检测字幕 (Alt+O)', () => {
                 triggerManualDetection(false);
