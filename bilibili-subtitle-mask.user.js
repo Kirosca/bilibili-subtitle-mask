@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Bilibili 无字幕观影（字幕遮挡）
 // @namespace    http://tampermonkey.net/
-// @version      1.4.5
-// @description  B站外置极简字幕遮挡条：①独立外置书签手柄(零拉伸零裁切)；②智能呼吸隐藏(全链路统一0.8s隐形/移入常亮/拖拽常亮/暂停换视频全程静默无扰)；③白天浅色与夜间暗黑双主题自适应，边框与背景100%同频平滑高亮B站蓝；④长按/Alt+J 50%透视偷看(手柄与黑条0ms瞬发瞬灭同步)，2px激光实线指引，拖拽零重排极速跟手；⑤Alt+M开启手柄0.8s自动呼吸隐藏，Alt+M关闭手柄0ms立刻同步瞬灭(防长按连发闪烁)；⑥Alt+1~5档位秒切结束0延迟同步隐形；⑦换视频全量原子化首帧同步；⑧四级级联记忆+2000条LRU自动垃圾回收(单P>合集>UP主>默认13%)；⑨智能识别新视频标题与标签【无字幕】自动静默隐藏遮挡条；⑩拖拽手柄右键彻底绝缘；⑪油猴菜单一键呼出B站原生UI记忆管理与二次确认弹窗；⑫智能帧采样自适应定位内嵌字幕高度并锁定常驻(无字幕不遮挡，支持Letterbox黑边补偿)；⑬只监听视频下半部分(50%~97%)；⑭双路常驻重新检测按钮(底栏原生按钮+手柄快捷圆钮)+Alt+O；⑮支持暂停视频即时检测与0ms瞬发覆盖；⑰暂停视频单帧极速判定(即点即测零等待)；⑱播放中未检出字幕严格保持遮挡条原状不改动；⑲精简移除播放器工具栏按钮，专注侧边快捷手柄与快捷键；⑳零冗余紧凑贴合覆盖(精准贴合字幕顶沿字形，不留多余空白空间)；㉑四重视觉特征防御机制(文字发光色过滤/横向居中约束/块厚度压制/25%物理天花板，彻底解决衣物背景误检与30%~40%跳变)；㉒支持【持续监听】与【关闭字幕遮挡】多入口选项(手柄与雷达按钮右键菜单/油猴菜单/管理弹窗)，修复检测结束按钮停止旋转；㉓预留+1.0%微距安全遮蔽空间，彻底杜绝字幕顶沿笔画、抗锯齿羽化边及黑色描边微量外露漏字；㉔全链路打通手柄与雷达检测按钮同频联动(移入同频浮现/移出同频0.8s呼吸隐藏/微调与预设0ms瞬灭)，彻底解决检测按钮未同步隐藏问题；㉕提供新视频起播双策略自由切换选项(【持续监听】vs【默认关闭】，旧视频独立遵从专属记忆)，支持右键菜单/管理弹窗/油猴菜单多端一键秒切；㉖严格限定暂停单帧判定仅响应用户手动点击触发，彻底解决新视频初始系统暂停状态误判画面第0帧及遮挡条跳动问题；㉗记忆管理弹窗文本精简避震折行；彻底移除提示弹窗与按钮动画反馈，回归完全纯净静默无扰观影体验。
+// @version      1.5.0
+// @description  B站外置极简字幕遮挡条：①独立外置书签手柄(零拉伸零裁切)；②智能呼吸隐藏(全链路统一0.8s隐形/移入常亮/拖拽常亮/暂停换视频全程静默无扰)；③白天浅色与夜间暗黑双主题自适应，边框与背景100%同频平滑高亮B站蓝；④长按/Alt+J 50%透视偷看(手柄与黑条0ms瞬发瞬灭同步)，2px激光实线指引，拖拽零重排极速跟手；⑤Alt+M开启手柄0.8s自动呼吸隐藏，Alt+M关闭手柄0ms立刻同步瞬灭(防长按连发闪烁)；⑥Alt+1~5档位秒切结束0延迟同步隐形；⑦换视频全量原子化首帧同步；⑧四级级联记忆+2000条LRU自动垃圾回收(单P>合集>UP主>默认13%)；⑨智能识别新视频标题与标签【无字幕】自动静默隐藏遮挡条；⑩拖拽手柄右键彻底绝缘；⑪油猴菜单一键呼出B站原生UI记忆管理与二次确认弹窗；⑫智能帧采样自适应定位内嵌字幕高度并锁定常驻(无字幕不遮挡，支持Letterbox黑边补偿)；⑬只监听视频下半部分(50%~97%)；⑭双路常驻重新检测按钮(底栏原生按钮+手柄快捷圆钮)+Alt+O；⑮支持暂停视频即时检测与0ms瞬发覆盖；⑰暂停视频单帧极速判定(即点即测零等待)；⑱播放中未检出字幕严格保持遮挡条原状不改动；⑲精简移除播放器工具栏按钮，专注侧边快捷手柄与快捷键；⑳零冗余紧凑贴合覆盖(精准贴合字幕顶沿字形，不留多余空白空间)；㉑四重视觉特征防御机制(文字发光色过滤/横向居中约束/块厚度压制/25%物理天花板，彻底解决衣物背景误检与30%~40%跳变)；㉒支持【持续监听】与【关闭字幕遮挡】多入口选项(手柄与雷达按钮右键菜单/油猴菜单/管理弹窗)，修复检测结束按钮停止旋转；㉓预留+1.0%微距安全遮蔽空间，彻底杜绝字幕顶沿笔画、抗锯齿羽化边及黑色描边微量外露漏字；㉔全链路打通手柄与雷达检测按钮同频联动(移入同频浮现/移出同频0.8s呼吸隐藏/微调与预设0ms瞬灭)，彻底解决检测按钮未同步隐藏问题；㉕提供新视频起播双策略自由切换选项(【持续监听】vs【默认关闭】，旧视频独立遵从专属记忆)，支持右键菜单/管理弹窗/油猴菜单多端一键秒切；㉖严格限定暂停单帧判定仅响应用户手动点击触发，彻底解决新视频初始系统暂停状态误判画面第0帧及遮挡条跳动问题；㉗记忆管理弹窗文本精简避震折行；彻底移除提示弹窗与按钮动画反馈，回归完全纯净静默无扰观影体验；㉘智能识别中英/英中/日中/中日等任意双行/双语字幕，在管理弹窗/右键菜单/油猴菜单提供双行规则自由切换（【全部遮挡】vs【仅遮挡下行】）。
 // @author       Kirosca
 // @license      MIT
 // @match        https://www.bilibili.com/video/*
@@ -48,6 +48,33 @@
                 GM_setValue(NEW_VIDEO_STRATEGY_KEY, strategy);
             }
             localStorage.setItem(NEW_VIDEO_STRATEGY_KEY, strategy);
+        } catch (e) {
+            void e;
+        }
+    }
+
+    const DUAL_LINE_STRATEGY_KEY = 'bili_mask_dual_line_strategy'; // 'all' | 'bottom_only'
+
+    function getDualLineStrategy() {
+        try {
+            if (typeof GM_getValue !== 'undefined') {
+                const val = GM_getValue(DUAL_LINE_STRATEGY_KEY, null);
+                if (val) { return val; }
+            }
+            const localVal = localStorage.getItem(DUAL_LINE_STRATEGY_KEY);
+            if (localVal) { return localVal; }
+        } catch (e) {
+            void e;
+        }
+        return 'all'; // 默认：双行字幕全部遮挡
+    }
+
+    function setDualLineStrategy(strategy) {
+        try {
+            if (typeof GM_setValue !== 'undefined') {
+                GM_setValue(DUAL_LINE_STRATEGY_KEY, strategy);
+            }
+            localStorage.setItem(DUAL_LINE_STRATEGY_KEY, strategy);
         } catch (e) {
             void e;
         }
@@ -414,6 +441,8 @@
         }
         .bili-mask-modal-card {
             width: 380px !important;
+            max-height: 90vh !important;
+            overflow-y: auto !important;
             border-radius: 12px !important;
             padding: 20px 24px 24px !important;
             box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2) !important;
@@ -789,6 +818,8 @@
         const isMaskVisible = config.visible && maskBox && maskBox.style.display !== 'none';
         const currentStrategy = getNewVideoStrategy();
         const strategyDesc = currentStrategy === 'continuous' ? '持续监听' : '默认关闭';
+        const currentDual = getDualLineStrategy();
+        const dualDesc = currentDual === 'bottom_only' ? '仅遮挡下行' : '全部遮挡';
 
         menu.innerHTML = `
             <div class="bili-mask-menu-item" id="bili-menu-detect-once">
@@ -807,6 +838,10 @@
             <div class="bili-mask-menu-item" id="bili-menu-toggle-strategy" title="切换新视频默认规则（旧视频保留记忆）：持续监听 vs 默认关闭">
                 <span>${currentStrategy === 'continuous' ? '🔄' : '🚫'}</span>
                 <span>新视频：${strategyDesc} (点击切换)</span>
+            </div>
+            <div class="bili-mask-menu-item" id="bili-menu-toggle-dual" title="切换双行字幕规则：全部遮挡 vs 仅遮挡下行">
+                <span>${currentDual === 'bottom_only' ? '🔽' : '🛡️'}</span>
+                <span>双行：${dualDesc} (点击切换)</span>
             </div>
             <div class="bili-mask-menu-item" id="bili-menu-open-modal">
                 <span>⚙️</span>
@@ -844,6 +879,13 @@
             const next = currentStrategy === 'continuous' ? 'closed' : 'continuous';
             setNewVideoStrategy(next);
             showToast(`⚙️ 新视频默认策略已设为：${next === 'continuous' ? '🔄 持续监听直到遮挡' : '🚫 默认完全关闭'}`);
+        };
+        document.getElementById('bili-menu-toggle-dual').onclick = (e) => {
+            e.stopPropagation();
+            menu.classList.remove('is-open');
+            const next = currentDual === 'bottom_only' ? 'all' : 'bottom_only';
+            setDualLineStrategy(next);
+            triggerManualDetection(false);
         };
         document.getElementById('bili-menu-open-modal').onclick = (e) => {
             e.stopPropagation();
@@ -940,7 +982,7 @@
             // 🌟 核心优化 2：自适应背景噪点分离门槛（引入字芯特征后，噪点行边缘数 <= 4，真实字幕达 30~180）
             const coreThreshold = Math.max(16, Math.min(24, Math.floor(maxEdgeInRoi * 0.20)));
 
-            // 🌟 核心优化 3：双行/折行字幕自适应合并（行间允许 12 行间隙，确保双行长句紧凑连通，避免长距离误连）
+            // 🌟 核心优化 3：双行字幕自适应切分（行间允许 4 行内部字隙连通，保持上下两行自然独立切分）
             const clusters = [];
             let currentCluster = null;
 
@@ -955,7 +997,7 @@
                 } else {
                     if (currentCluster) {
                         let hasNearby = false;
-                        for (let g = y; g <= Math.min(roiYEnd, y + 12); g++) {
+                        for (let g = y; g <= Math.min(roiYEnd, y + 4); g++) {
                             if (rowEdges[g] >= coreThreshold) {
                                 hasNearby = true;
                                 break;
@@ -1015,9 +1057,9 @@
                     extDown++;
                 }
 
-                // 🌟 防御 2：单块纵向厚度约束（常规双行字幕占画面约 8%~12%，严控在 <= 15%，防止垂直爬梯把整个人身串联）
+                // 🌟 防御 2：纵向厚度约束（单行字幕或紧凑双行，控制在 <= 22% 画面高度）
                 const textSpan = maxY - minY;
-                if (textSpan < 4 || textSpan > Math.round(targetH * 0.15)) {
+                if (textSpan < 4 || textSpan > Math.round(targetH * 0.22)) {
                     continue;
                 }
 
@@ -1037,10 +1079,10 @@
                     continue;
                 }
 
-                // 🌟 防御 3：水平中心对齐校验（对话字幕必然处于横向 36%~64% 核心居中区间，过滤画面侧边偏位动作与道具）
+                // 🌟 防御 3：水平中心对齐校验（对话字幕必然处于横向 34%~66% 核心居中区间，过滤画面侧边偏位动作与道具）
                 const textCenterX = (textMinX + textMaxX) / 2;
                 const centerPercent = (textCenterX / targetW) * 100;
-                if (centerPercent < 36.0 || centerPercent > 64.0) {
+                if (centerPercent < 34.0 || centerPercent > 66.0) {
                     continue;
                 }
 
@@ -1052,13 +1094,14 @@
 
                 // 🌟 防御 4：物理天花板硬上限截断（标准对话字幕绝不会超过 25%，宽银幕黑边自适应限幅，彻底杜绝跳变至 30%~40%）
                 const maxAllowedHeight = offsetBottomPx > 0
-                    ? parseFloat((((offsetBottomPx + renderH * 0.18) / containerH) * 100).toFixed(1))
+                    ? parseFloat((((offsetBottomPx + renderH * 0.22) / containerH) * 100).toFixed(1))
                     : 25.0;
 
                 if (heightPercent >= 6.0 && heightPercent <= maxAllowedHeight) {
                     candidateList.push({
                         heightPercent,
                         widthPercent,
+                        centerPercent,
                         minY,
                         maxY,
                         clusterBottomY: maxY // 在纵向坐标系中，数值越大表示越靠近画面底部
@@ -1068,6 +1111,68 @@
 
             // 🌟 核心排序规则：按 clusterBottomY 降序排序，确保排在首位的是【最靠近画面底部】的完整台词组！
             candidateList.sort((a, b) => b.clusterBottomY - a.clusterBottomY);
+
+            // 🌟 核心双行字幕识别与策略适配：支持中英/英中/日中/中日等任意双行字幕 🌟
+            if (candidateList.length > 0) {
+                const bottomCand = candidateList[0];
+                let companionTopCand = null;
+
+                // 1. 跨簇向上关联探测紧邻的上行字幕
+                for (let i = 1; i < candidateList.length; i++) {
+                    const cand = candidateList[i];
+                    const gapPx = bottomCand.minY - cand.maxY;
+                    // 垂直间隙在 -2px（微重叠）至 8% 画面高度（标准双行行距）之间
+                    const isAdjacent = gapPx >= -2 && gapPx <= Math.round(targetH * 0.08);
+                    // 横向中心对齐偏差 <= 9.0%
+                    const isCenterAligned = Math.abs(cand.centerPercent - bottomCand.centerPercent) <= 9.0;
+                    // 双行总跨度不超过 22% 画高
+                    const totalSpan = bottomCand.maxY - cand.minY;
+                    const isSpanValid = totalSpan <= Math.round(targetH * 0.22);
+
+                    if (isAdjacent && isCenterAligned && isSpanValid) {
+                        companionTopCand = cand;
+                        break;
+                    }
+                }
+
+                if (companionTopCand) {
+                    const fullHeight = Math.max(bottomCand.heightPercent, companionTopCand.heightPercent);
+                    const bottomHeight = bottomCand.heightPercent;
+                    bottomCand.isDualLine = true;
+                    bottomCand.fullHeight = fullHeight;
+                    bottomCand.bottomHeight = bottomHeight;
+
+                    const dualStrategy = getDualLineStrategy();
+                    bottomCand.heightPercent = dualStrategy === 'bottom_only' ? bottomHeight : fullHeight;
+                } else if ((bottomCand.maxY - bottomCand.minY) >= Math.round(targetH * 0.11)) {
+                    // 2. 紧凑连通簇内部谷值检测（应对极紧密双行）
+                    const midStart = bottomCand.minY + Math.round((bottomCand.maxY - bottomCand.minY) * 0.3);
+                    const midEnd = bottomCand.minY + Math.round((bottomCand.maxY - bottomCand.minY) * 0.7);
+                    let minEdgeVal = Infinity;
+                    let valleyY = -1;
+                    for (let y = midStart; y <= midEnd; y++) {
+                        if (rowEdges[y] < minEdgeVal) {
+                            minEdgeVal = rowEdges[y];
+                            valleyY = y;
+                        }
+                    }
+                    if (valleyY !== -1 && minEdgeVal <= coreThreshold * 0.8) {
+                        const subVideoPx = ((targetH - valleyY) / targetH) * renderH;
+                        const totalMaskPx = offsetBottomPx + subVideoPx;
+                        const rawHeight = (totalMaskPx / containerH) * 100;
+                        const bottomHeight = parseFloat((rawHeight + 1.0).toFixed(1));
+                        const fullHeight = bottomCand.heightPercent;
+
+                        bottomCand.isDualLine = true;
+                        bottomCand.fullHeight = fullHeight;
+                        bottomCand.bottomHeight = bottomHeight;
+
+                        const dualStrategy = getDualLineStrategy();
+                        bottomCand.heightPercent = dualStrategy === 'bottom_only' ? bottomHeight : fullHeight;
+                    }
+                }
+            }
+
             return candidateList;
 
         } catch (err) {
@@ -1784,6 +1889,16 @@
                                 <button class="bili-mask-action-btn btn-normal" id="bili-btn-strat-closed" style="flex:1; height:32px; font-size:12px;">🚫 默认关闭</button>
                             </div>
                         </div>
+                        <div style="margin-bottom: 14px; padding: 10px 12px; border-radius: 8px; background: rgba(0, 174, 236, 0.08); border: 1px solid rgba(0, 174, 236, 0.2); font-size: 13px;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 8px;">
+                                <span style="font-weight:600;">👥 双行字幕规则：</span>
+                                <span id="bili-dual-badge" style="color:#00aeec; font-weight:600;">全部遮挡</span>
+                            </div>
+                            <div style="display:flex; gap:8px;">
+                                <button class="bili-mask-action-btn btn-normal" id="bili-btn-dual-all" style="flex:1; height:32px; font-size:12px;">🛡️ 全部遮挡</button>
+                                <button class="bili-mask-action-btn btn-normal" id="bili-btn-dual-bottom" style="flex:1; height:32px; font-size:12px;">🔽 仅遮挡下行</button>
+                            </div>
+                        </div>
                         <div class="bili-mask-btn-group">
                             <button class="bili-mask-action-btn btn-normal" id="bili-btn-auto-detect">🎯 重新单次检测 (Alt+O)</button>
                             <button class="bili-mask-action-btn btn-normal" id="bili-btn-continuous-detect">🔄 持续监听直到遮挡</button>
@@ -1876,6 +1991,45 @@
             document.getElementById('bili-btn-strat-closed').addEventListener('click', () => {
                 setNewVideoStrategy('closed');
                 updateStrategyButtonsUI();
+            });
+
+            // 双行字幕策略切换
+            const updateDualLineButtonsUI = () => {
+                const strat = getDualLineStrategy();
+                const badge = document.getElementById('bili-dual-badge');
+                if (badge) {
+                    badge.textContent = strat === 'bottom_only' ? '仅遮挡下行' : '全部遮挡';
+                }
+                const bAll = document.getElementById('bili-btn-dual-all');
+                const bBottom = document.getElementById('bili-btn-dual-bottom');
+                if (bAll && bBottom) {
+                    if (strat === 'bottom_only') {
+                        bBottom.style.setProperty('background', '#00aeec', 'important');
+                        bBottom.style.setProperty('color', '#ffffff', 'important');
+                        bBottom.style.setProperty('border-color', '#00aeec', 'important');
+                        bAll.style.removeProperty('background');
+                        bAll.style.removeProperty('color');
+                        bAll.style.removeProperty('border-color');
+                    } else {
+                        bAll.style.setProperty('background', '#00aeec', 'important');
+                        bAll.style.setProperty('color', '#ffffff', 'important');
+                        bAll.style.setProperty('border-color', '#00aeec', 'important');
+                        bBottom.style.removeProperty('background');
+                        bBottom.style.removeProperty('color');
+                        bBottom.style.removeProperty('border-color');
+                    }
+                }
+            };
+
+            document.getElementById('bili-btn-dual-all').addEventListener('click', () => {
+                setDualLineStrategy('all');
+                updateDualLineButtonsUI();
+                triggerManualDetection(false);
+            });
+            document.getElementById('bili-btn-dual-bottom').addEventListener('click', () => {
+                setDualLineStrategy('bottom_only');
+                updateDualLineButtonsUI();
+                triggerManualDetection(false);
             });
 
             // 按钮 0：重新单次检测字幕
@@ -2017,6 +2171,34 @@
         };
         updateStrategyButtonsUI();
 
+        const updateDualLineButtonsUI = () => {
+            const strat = getDualLineStrategy();
+            const badge = document.getElementById('bili-dual-badge');
+            if (badge) {
+                badge.textContent = strat === 'bottom_only' ? '仅遮挡下行' : '全部遮挡';
+            }
+            const bAll = document.getElementById('bili-btn-dual-all');
+            const bBottom = document.getElementById('bili-btn-dual-bottom');
+            if (bAll && bBottom) {
+                if (strat === 'bottom_only') {
+                    bBottom.style.setProperty('background', '#00aeec', 'important');
+                    bBottom.style.setProperty('color', '#ffffff', 'important');
+                    bBottom.style.setProperty('border-color', '#00aeec', 'important');
+                    bAll.style.removeProperty('background');
+                    bAll.style.removeProperty('color');
+                    bAll.style.removeProperty('border-color');
+                } else {
+                    bAll.style.setProperty('background', '#00aeec', 'important');
+                    bAll.style.setProperty('color', '#ffffff', 'important');
+                    bAll.style.setProperty('border-color', '#00aeec', 'important');
+                    bBottom.style.removeProperty('background');
+                    bBottom.style.removeProperty('color');
+                    bBottom.style.removeProperty('border-color');
+                }
+            }
+        };
+        updateDualLineButtonsUI();
+
         const viewMain = document.getElementById('bili-mask-view-main');
         const viewConfirm = document.getElementById('bili-mask-view-confirm');
         if (viewMain && viewConfirm) {
@@ -2035,6 +2217,13 @@
             GM_registerMenuCommand(`⚙️ 新视频规则：${stratLabel} (点击切换)`, () => {
                 const next = getNewVideoStrategy() === 'continuous' ? 'closed' : 'continuous';
                 setNewVideoStrategy(next);
+            });
+            const currentDual = getDualLineStrategy();
+            const dualLabel = currentDual === 'all' ? '全部遮挡' : '仅遮挡下行';
+            GM_registerMenuCommand(`👥 双行字幕：${dualLabel} (点击切换)`, () => {
+                const next = getDualLineStrategy() === 'all' ? 'bottom_only' : 'all';
+                setDualLineStrategy(next);
+                triggerManualDetection(false);
             });
             GM_registerMenuCommand('🎯 重新单次检测字幕 (Alt+O)', () => {
                 triggerManualDetection(false);
